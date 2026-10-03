@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "name": "sccamerafix",
+  "indexUrl": "https://hlnd2t.github.io/GoldSrc_VibeSignatures/gamesymbols/index.json",
+  "gameVersions": [
+    "svencoop-10257",
+    "svencoop-8948"
+  ],
+  "symbols": {
+    "client": {
+      "V_CalcNormalRefdef": "function",
+      "gEngfuncs": "global",
+      "g_iUser1": "global",
+      "g_iUser2": "global",
+      "g_vVecViewangles": "global",
+      "v_origin": "global"
+    }
+  }
+}
