@@ -60,13 +60,13 @@ install(FILES "$<TARGET_PDB_FILE:SCCameraFix>" DESTINATION svencoop/metahook/plu
 # resolves, in a nested directory the launcher's catalog loader merges
 # (metahook/gamedata/sccamerafix). The manifest lists those symbols.
 option(SCCAMERAFIX_SYNC_GAMEDATA "Download and prune SCCameraFix's gamedata catalog before building" ON)
-set(SCCAMERAFIX_GAMEDATA_DIR "${CMAKE_BINARY_DIR}/assets/svencoop/metahook/gamedata/sccamerafix" CACHE PATH "SCCameraFix gamedata catalog directory")
+set(SCCAMERAFIX_GAMEDATA_DIR "${PROJECT_BINARY_DIR}/assets/svencoop/metahook/gamedata/sccamerafix" CACHE PATH "SCCameraFix gamedata catalog directory")
 if(SCCAMERAFIX_SYNC_GAMEDATA)
     find_package(Python3 REQUIRED COMPONENTS Interpreter)
     add_custom_target(SCCameraFixGameData
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/scripts/sync-gamedata.py"
             --manifest "${CMAKE_CURRENT_SOURCE_DIR}/scripts/manifests/sccamerafix.json"
-            --target-dir "${SCCAMERAFIX_GAMEDATA_DIR}" --temp-root "${CMAKE_BINARY_DIR}/gamedata-sync"
+            --target-dir "${SCCAMERAFIX_GAMEDATA_DIR}" --temp-root "${PROJECT_BINARY_DIR}/gamedata-sync"
         COMMENT "Synchronizing and validating SCCameraFix gamedata"
         VERBATIM
     )
