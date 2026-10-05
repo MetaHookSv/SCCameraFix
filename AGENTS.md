@@ -222,23 +222,6 @@ Runtime configuration: `SCCameraFix.dll` must be listed in the host's `metahook/
 3. **The proxy only acts inside `CAM_Think` with `PM_STUDIO_BOX | PM_STUDIO_IGNORE`.** A breakpoint in `EV_PlayerTrace_Proxy` will hit for every trace in the game; check `g_bIsCallingCAM_Think` before concluding anything
 4. **`EV_PlayerTrace_Proxy` scans the physent list** — a breakpoint in its loop is the quickest way to see which index is chosen as `ignore_pe`
 
-## FAQ
-
-### Q: Why does the plugin refuse to load on a non-Sven Co-op mod?
-A: `Client_FillAddress` requires the `SCClientDLL001` client factory and raises `Sys_Error("This plugin is for Sven Co-op!")` otherwise. The camera behavior it restores is Sven Co-op specific, and the gamedata catalog only publishes the `svencoop-*` builds.
-
-### Q: Why is `EV_PlayerTrace` proxied instead of hooking the camera itself?
-A: The engine's chase trace runs through the client's event API and treats the spectated player as world geometry, which is what clips the camera. Replacing the pointer in the client's own `pEventAPI` slot lets the plugin ignore exactly that player without touching the engine's code.
-
-### Q: Why do two of the three proxies just drop their call?
-A: After the proxied trace, the engine re-applies its own prediction and solid-player state (`EV_SetUpPlayerPrediction(1, 1)`, `EV_SetSolidPlayers(-1)`). The post flag makes those two calls no-ops for the remainder of the `CAM_Think` pass, which is what keeps the spectator's view from being reset.
-
-### Q: Is `ConvertDllInfoSpace` / `GetVFunctionFromVFTable` part of the pipeline?
-A: No. Both are leftovers from the address-relocation era and are never called; `GetVFunctionFromVFTable` is not even declared in a header. Do not extend them.
-
-### Q: Does a successful build prove the camera is fixed?
-A: No. There is no test suite here, so a green configure/build says nothing about whether the symbols resolve or the observer view is correct at runtime. Claims about in-game behavior require evidence from a real game run. Documentation changes need content, path and format checks, not a plugin rebuild.
-
 ## Repository Rules
 
 - Preserve the MetaHook API, plugin exports, calling conventions and camera behavior. Match the naming, indentation and comment style of the files you touch
