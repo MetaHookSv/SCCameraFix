@@ -156,7 +156,7 @@ The scripts configure, build and install. Debug compiles at `/W0`; Release compi
 
 ### Dependencies
 
-- **MetaHook SDK**: fetched automatically at a pinned commit; pass `-DMETAHOOK_SOURCE_PATH=D:\MetaHook` or export the same environment variable to build against a local tree. The path is the repository root providing `include/metahook.h`, `include/HLSDK` and `include/Interface`
+- **MetaHook SDK**: fetched automatically from the latest `main`; pass `-DMETAHOOK_SOURCE_PATH=D:\MetaHook` or export the same environment variable to build against a local tree. The path is the repository root providing `include/metahook.h`, `include/HLSDK` and `include/Interface`
 - **VC-LTL 5.3.1**: downloaded once into `thirdparty/cache`
 - **Nothing else.** No Capstone headers, no SourceSDK units, and no third-party library is linked — the MetaHook SDK tree is the only dependency besides VC-LTL
 
