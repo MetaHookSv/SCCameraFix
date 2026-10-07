@@ -234,6 +234,6 @@ Runtime configuration: `SCCameraFix.dll` must be listed in the host's `metahook/
 
 ## Related Links
 
-- **MetaHookSV**: https://github.com/hzqst/MetaHookSv
+- **MetaHookSV**: https://github.com/MetaHookSv/MetaHookSv
 - **Gamedata symbol catalog**: https://hlnd2t.github.io/GoldSrc_VibeSignatures/
 - **Sven Co-op**: https://www.svencoop.com/

@@ -6,7 +6,7 @@ Sven Co-op's third-person and spectator camera clips through players and ignores
 
 # Install
 
-1. Download and install [MetaHookSv](https://github.com/hzqst/MetaHookSv).
+1. Download and install [MetaHookSv](https://github.com/MetaHookSv/MetaHookSv).
 
 2. Build or download .dll, put it into `/SteamLibrary/steamapps/common/Sven Co-op/svencoop/metahook/plugins` directory.
 
