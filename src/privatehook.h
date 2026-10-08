@@ -4,8 +4,8 @@
 
 typedef struct
 {
-	void (*V_CalcNormalRefdef)(ref_params_t*);
-}private_funcs_t;
+    void (*V_CalcNormalRefdef)(ref_params_t*);
+} private_funcs_t;
 
 extern private_funcs_t gPrivateFuncs;
 
