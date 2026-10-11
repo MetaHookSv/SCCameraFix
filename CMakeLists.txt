@@ -49,7 +49,9 @@ target_compile_options(sccamerafix_settings INTERFACE /permissive
     /wd4311 /wd4312 /wd4819 /wd4996)
 
 include(cmake/Sources.cmake)
+include(cmake/SourceGroups.cmake)
 add_library(SCCameraFix SHARED ${SCCAMERAFIX_SOURCES})
+sccamerafix_assign_source_groups(SCCameraFix)
 target_link_libraries(SCCameraFix PRIVATE sccamerafix_settings)
 target_compile_options(SCCameraFix PRIVATE /MP /Zi)
 target_link_options(SCCameraFix PRIVATE /DEBUG /SUBSYSTEM:WINDOWS
